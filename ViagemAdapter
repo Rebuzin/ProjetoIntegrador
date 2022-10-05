@@ -22,7 +22,7 @@ public class ViagemAdapter extends BaseAdapter {
         this.listaViagem = listaViagem;
     }
 
-    @Override//Pega a quantidade de elemontos no arraylist
+    @Override//Pega a quantidade de elementos no arraylist
     public int getCount() {
         return listaViagem.size();
     }
@@ -44,11 +44,16 @@ public class ViagemAdapter extends BaseAdapter {
         }
 
         Viagem viagem = listaViagem.get(position);
-        TextView tvListRa = view.findViewById(R.id.tvItemListData);
-        TextView tvListNome = view.findViewById(R.id.tvItemListKmInicial);
+        TextView tvListData = view.findViewById(R.id.tvItemListData);
+        TextView tvListKmInicial = view.findViewById(R.id.tvItemListKmInicial);
+        TextView tvListKmFinal = view.findViewById(R.id.tvItemListKmFinal);
+        TextView tvListLitros = view.findViewById(R.id.tvItemListLitros);
 
-        tvListRa.setText("Data: " + viagem.getData());
-        tvListNome.setText("Km Inicial: " + viagem.getKmInicial());
+
+        tvListData.setText("Data: " + viagem.getData());
+        tvListKmInicial.setText("Km Inicial: " + viagem.getKmInicial());
+        tvListKmFinal.setText("Km Final: " + viagem.getKmFinal());
+        tvListLitros.setText("Litros: " + viagem.getLitros());
         return view;
     }
 }
