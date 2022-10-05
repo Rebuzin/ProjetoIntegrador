@@ -1,0 +1,26 @@
+package com.example.appmedia.model;
+
+public class Viagem {
+    private String data;
+    private String kmInicial;
+
+    public Viagem() {
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getKmInicial() {
+        return kmInicial;
+    }
+
+    public void setKmInicial(String kmInicial) {
+        this.kmInicial = kmInicial;
+    }
+
+}
