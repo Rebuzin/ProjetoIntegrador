@@ -31,13 +31,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-
+            android:id="@+id/edKmFinal"
             android:hint="km chegada" />
 
         <EditText
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:id="@+id/edLitros"
             android:hint="Litros"
             android:minWidth="60dp" />
 
