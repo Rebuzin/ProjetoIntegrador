@@ -25,6 +25,18 @@
             android:id="@+id/tvItemListKmInicial"
             android:textSize="18dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvItemListKmFinal"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvItemListLitros"
+            android:textSize="18dp"/>
+
     </LinearLayout>
 
 </LinearLayout>
