@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:id="@+id/edData"
+            android:hint="Data" />
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/edKmInicial"
+            android:hint="Km saida" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/edKmFinal"
+            android:hint="km chegada" />
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:id="@+id/edLitros"
+            android:hint="Litros"
+            android:minWidth="60dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:onClick="adicionarViagem"
+            android:id="@+id/btInserirViagem"
+            android:text="Inserir" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="323dp">
+
+        <ListView
+            android:id="@+id/lvViagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="297dp"-->
+    <!--        android:orientation="vertical">-->
+
+    <!--        <EditText-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="center"-->
+    <!--            android:tegravity="center"-->
+    <!--            android:text="Rodapé"-->
+    <!--            android:textAlignment="center" />-->
+    <!--    </LinearLayout>-->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/cabecalho"-->
+        <!--            android:layout_width="fill_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+
+        <!--            android:orientation="horizontal"-->
+        <!--            android:padding="10dip">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/texto1"-->
+        <!--                android:layout_width="fill_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_alignParentBottom="true"-->
+        <!--                android:gravity="center_horizontal"-->
+        <!--                android:text="Aqui fica o cabeçalho"-->
+        <!--                android:textColor="#FFFFFF" />-->
+        <!--        </LinearLayout>-->
+
+        <LinearLayout
+            android:id="@+id/rodape"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#005500"
+            android:gravity="center_vertical"
+            android:padding="10dip">
+
+            <TextView
+                android:id="@+id/texto2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="OUTUBRO 2022"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <!--        <ListView-->
+        <!--            android:id="@android:id/list"-->
+        <!--            android:layout_width="fill_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_above="@id/rodape"-->
+        <!--            android:layout_below="@id/cabecalho"-->
+        <!--            android:background="#000055" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@android:id/empty"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_above="@id/rodape"-->
+        <!--            android:text="Lista vazia" />-->
+    </RelativeLayout>
+
+</LinearLayout>

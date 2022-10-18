@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppMedia</string>
+    <string name="media_dos_caminh_es">Media dos caminhões</string>
+    <string name="insira_a_data_da_viagem_aqui">Insira a Data da viagem aqui</string>
+    <string name="insira_o_km_inicial_aqui">Insira o km inicial aqui</string>
+    <string name="insira_o_km_final_aqui">Insira o km final aqui</string>
+</resources>
