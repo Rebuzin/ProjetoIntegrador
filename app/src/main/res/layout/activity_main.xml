@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundTint="@color/black"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -14,32 +15,32 @@
         android:orientation="horizontal">
 
         <EditText
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:inputType="datetime"
             android:id="@+id/edData"
-            android:hint="Data" />
-
-        <EditText
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:id="@+id/edKmInicial"
-            android:hint="Km saida" />
+            android:hint="Data"
+            android:inputType="datetime" />
 
         <EditText
+            android:id="@+id/edKmInicial"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Km saida"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edKmFinal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:id="@+id/edKmFinal"
-            android:hint="km chegada" />
+            android:hint="km chegada"
+            android:inputType="number" />
 
         <EditText
+            android:id="@+id/edLitros"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:id="@+id/edLitros"
             android:hint="Litros"
+            android:inputType="numberDecimal"
             android:minWidth="60dp" />
 
     </LinearLayout>
@@ -50,12 +51,14 @@
         android:layout_marginBottom="45dp">
 
         <Button
+            android:id="@+id/btInserirViagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#4CAF50"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#005500"
             android:onClick="adicionarViagem"
-            android:id="@+id/btInserirViagem"
-            android:text="Inserir" />
+            android:text="Inserir"
+            app:cornerRadius="10dp" />
 
     </LinearLayout>
 
