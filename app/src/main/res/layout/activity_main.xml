@@ -58,7 +58,8 @@
             android:backgroundTint="#005500"
             android:onClick="adicionarViagem"
             android:text="Inserir"
-            app:cornerRadius="10dp" />
+            app:cornerRadius="10dp"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

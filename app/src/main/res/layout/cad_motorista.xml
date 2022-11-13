@@ -64,6 +64,7 @@
             android:backgroundTint="#005500"
             android:onClick="adicionarMotorista"
             android:text="Inserir"
+            android:textColor="#FFFFFF"
             app:cornerRadius="10dp" />
 
     </LinearLayout>
