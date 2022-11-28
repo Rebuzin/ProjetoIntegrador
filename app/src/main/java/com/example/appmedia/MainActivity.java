@@ -12,10 +12,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.ui.AppBarConfiguration;
+//import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.appmedia.adapter.ViagemAdapter;
+import com.example.appmedia.mapper.ViagemMapperOrmLite;
+import com.example.appmedia.model.Info;
 import com.example.appmedia.model.Viagem;
+import com.example.appmedia.repository.ViagemInterface;
+import com.example.appmedia.repository.ViagemRepositorioOrmLite;
+
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
     private DatePickerDialog datePickerDialog;
 
-    private AppBarConfiguration mAppBarConfiguration;
+    private static final ViagemInterface repositorio = new ViagemRepositorioOrmLite();
+
+//    private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
 
@@ -150,8 +157,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void atualizaLista(){
-        ViagemAdapter  adapter = new ViagemAdapter(this, listaViagem);
-        lvViagem.setAdapter(adapter);
+
+        //buscando lista do sqlite
+        repositorio.listar(this, info3 -> {
+
+            if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
+
+                listaViagem = (ArrayList<Viagem>)info3.getObjeto();
+                ViagemAdapter  adapter = new ViagemAdapter(this, listaViagem);
+                lvViagem.setAdapter(adapter);
+
+            }
+        });
+
+
     }
 
     public void adicionarViagem(View view) {
@@ -168,6 +187,15 @@ public class MainActivity extends AppCompatActivity {
         edKmInicial.setText("");
         edKmFinal.setText("");
         edLitros.setText("");
+
+        //Salvando no sqlite
+        repositorio.salvar(this, viagem, info3 -> {
+
+            if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
+                //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
+                System.out.println("Salvou!");
+            }
+        });
 
     }
 

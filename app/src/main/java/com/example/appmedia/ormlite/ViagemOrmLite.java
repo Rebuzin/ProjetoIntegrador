@@ -21,22 +21,21 @@ public class ViagemOrmLite {
     public static final String ALIAS_CLASSE_ID = "id";
 
     public static final String ID = "id";
-    public static final String ESTAB = "estab";
-    public static final String REDUZIDO = "reduzido";
-    public static final String USERS_COM_ACESSO = "usersComAcesso";
-    public static final String VISUALIZA_QTD_NOTA_COLETOR = "visualizaQtdNotaColetor";
+    public static final String DATA = "data";
+    public static final String KM_INICIAL = "kmInicial";
+    public static final String KM_FINAL = "kmFinal";
+    public static final String LITROS = "litros";
 
     @DatabaseField(generatedId = true)
     private Integer id;
     @DatabaseField()
     private String data;
     @DatabaseField()
-    private Double kmInicial;
+    private String kmInicial;
     @DatabaseField()
-    private Double kmFinal;
+    private String kmFinal;
     @DatabaseField()
-    private Double litros;
-
+    private String litros;
 
     public Integer getId() {
         return id;
@@ -54,27 +53,27 @@ public class ViagemOrmLite {
         this.data = data;
     }
 
-    public Double getKmInicial() {
+    public String getKmInicial() {
         return kmInicial;
     }
 
-    public void setKmInicial(Double kmInicial) {
+    public void setKmInicial(String kmInicial) {
         this.kmInicial = kmInicial;
     }
 
-    public Double getKmFinal() {
+    public String getKmFinal() {
         return kmFinal;
     }
 
-    public void setKmFinal(Double kmFinal) {
+    public void setKmFinal(String kmFinal) {
         this.kmFinal = kmFinal;
     }
 
-    public Double getLitros() {
+    public String getLitros() {
         return litros;
     }
 
-    public void setLitros(Double litros) {
+    public void setLitros(String litros) {
         this.litros = litros;
     }
 }
