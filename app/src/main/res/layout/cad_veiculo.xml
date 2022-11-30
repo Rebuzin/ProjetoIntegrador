@@ -5,13 +5,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#005500"
-        android:gravity="center"
-        android:text="Cadastro de Veiculos"
-        android:textColor="#FFFFFF" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/cabecalho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:background="#005500"
+            android:gravity="center_vertical"
+            android:padding="10dip">
+
+            <Button
+                android:id="@+id/btPagina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="..."
+                android:backgroundTint="#005500"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#005500"
+                android:gravity="center"
+                android:text="Cadastro de Veiculos"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,7 +122,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="OUTUBRO 2022"
+                android:text="NOVEMBRO 2022"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
