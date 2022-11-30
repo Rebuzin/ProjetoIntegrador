@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
             listaViagem.add(viagem);
             atualizaLista();
 
-            btData.setText("01/12/2022");
+            btData.setText("30/11/2022");
             edKmInicial.setText("");
             edKmFinal.setText("");
             edLitros.setText("");
