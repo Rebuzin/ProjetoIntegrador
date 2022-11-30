@@ -48,12 +48,14 @@ public class ViagemAdapter extends BaseAdapter {
         TextView tvListKmInicial = view.findViewById(R.id.tvItemListKmInicial);
         TextView tvListKmFinal = view.findViewById(R.id.tvItemListKmFinal);
         TextView tvListLitros = view.findViewById(R.id.tvItemListLitros);
+//        TextView tvListMedia = view.findViewById(R.id.tvItemListMedia);
 
 
         tvListData.setText("Data: " + viagem.getData());
         tvListKmInicial.setText("Km Inicial: " + viagem.getKmInicial());
         tvListKmFinal.setText("Km Final: " + viagem.getKmFinal());
         tvListLitros.setText("Litros: " + viagem.getLitros());
+//        tvListMedia.setText("Média" + viagem.getMedia());
         return view;
     }
 }

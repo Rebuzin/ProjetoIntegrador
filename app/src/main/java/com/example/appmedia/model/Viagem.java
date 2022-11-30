@@ -5,6 +5,7 @@ public class Viagem {
     private String kmInicial;
     private String kmFinal;
     private String litros;
+    private Integer media;
 
     public Viagem() {
     }
@@ -39,5 +40,13 @@ public class Viagem {
 
     public void setLitros(String litros) {
         this.litros = litros;
+    }
+
+    public Integer getMedia() {
+        return media;
+    }
+
+    public void setMedia(Integer media) {
+        this.media = media;
     }
 }

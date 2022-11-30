@@ -10,6 +10,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 //import androidx.navigation.ui.AppBarConfiguration;
@@ -35,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText edLitros;
     private TextView media;
     private Viagem viagemSelecionada;
+
+    private String kmini;
+    private String kmfin;
+
+//    kmini = edKmInicial.getText().toString();
+//    kmfin = edKmFinal.getText().toString();
 
     private DatePickerDialog datePickerDialog;
 
@@ -174,29 +181,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void adicionarViagem(View view) {
-        Viagem viagem = new Viagem();
-        viagem.setData(btData.getText().toString());
-        viagem.setKmInicial(edKmInicial.getText().toString());
-        viagem.setKmFinal(edKmFinal.getText().toString());
-        viagem.setLitros(edLitros.getText().toString());
+        if(validaDados()){
 
-        listaViagem.add(viagem);
-        atualizaLista();
+//            final int kmfinal = Integer.valueOf(kmfin);
+//            final int kminicial = Integer.valueOf(kmini);
 
-        btData.setText("");
-        edKmInicial.setText("");
-        edKmFinal.setText("");
-        edLitros.setText("");
+            Viagem viagem = new Viagem();
+            viagem.setData(btData.getText().toString());
+            viagem.setKmInicial(edKmInicial.getText().toString());
+            viagem.setKmFinal(edKmFinal.getText().toString());
+            viagem.setLitros(edLitros.getText().toString());
 
-        //Salvando no sqlite
-        repositorio.salvar(this, viagem, info3 -> {
+//            viagem.setMedia(edKmFinal - edKmInicial);
 
-            if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
-                //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
-                System.out.println("Salvou!");
-            }
-        });
 
+            listaViagem.add(viagem);
+            atualizaLista();
+
+    //        btData.setText("");
+    //        edKmInicial.setText("");
+    //        edKmFinal.setText("");
+    //        edLitros.setText("");
+
+            //Salvando no sqlite
+            repositorio.salvar(this, viagem, info3 -> {
+
+                if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
+                    //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
+                    System.out.println("Salvou!");
+                }
+            });
+
+            btData.setText("01/12/2022");
+            edKmInicial.setText("");
+            edKmFinal.setText("");
+            edLitros.setText("");
+
+
+
+        } else {
+            Toast.makeText(this, "Erro ao inserir viagem", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void OpenDate(View view) {
@@ -204,5 +229,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class ActivityMainBinding {
+    }
+
+    public boolean validaDados(){
+
+
+//        final int kmfinal = Integer.valueOf(kmfin);
+//        final int kminicial = Integer.valueOf(kmini);
+//
+//        if (kmfinal > kminicial){
+//            edKmFinal.setError("O KM final não pode ser menor que o inicial");
+//            edKmFinal.requestFocus();
+//            return false;
+//        }
+
+        if (edKmInicial.getText().toString().equals("")){
+            edKmInicial.setError("Informe o KM inicial");
+            edKmInicial.requestFocus();
+            return false;
+        }
+        if (edKmFinal.getText().toString().equals("")){
+            edKmFinal.setError("Informe o KM final");
+            edKmFinal.requestFocus();
+            return false;
+        }
+        if (edLitros.getText().toString().equals("")){
+            edLitros.setError("Informe a quantidade de Litros");
+            edLitros.requestFocus();
+            return false;
+        }
+
+        return true;
+
     }
 }
