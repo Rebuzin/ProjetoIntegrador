@@ -36,10 +36,8 @@ public class ViagemRepositorioOrmLite implements ViagemInterface {
                 // Removo o autocommit
                 dao.setAutoCommit(db, false);
 
-
-                    ViagemOrmLite embOrmLite = mapper.voToOrm(dados);
-                    dao.createOrUpdate(embOrmLite);
-
+                ViagemOrmLite embOrmLite = mapper.voToOrm(dados);
+                dao.createOrUpdate(embOrmLite);
 
                 dao.commit(db);
 

@@ -181,27 +181,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void adicionarViagem(View view) {
-        if(validaDados()){
+
+        Viagem viagem = new Viagem();
+        viagem.setData(btData.getText().toString());
+        viagem.setKmInicial(edKmInicial.getText().toString());
+        viagem.setKmFinal(edKmFinal.getText().toString());
+        viagem.setLitros(edLitros.getText().toString());
+
+        if(validaDados(viagem)){
 
 //            final int kmfinal = Integer.valueOf(kmfin);
 //            final int kminicial = Integer.valueOf(kmini);
-
-            Viagem viagem = new Viagem();
-            viagem.setData(btData.getText().toString());
-            viagem.setKmInicial(edKmInicial.getText().toString());
-            viagem.setKmFinal(edKmFinal.getText().toString());
-            viagem.setLitros(edLitros.getText().toString());
-
-//            viagem.setMedia(edKmFinal - edKmInicial);
-
-
-            listaViagem.add(viagem);
-            atualizaLista();
-
-    //        btData.setText("");
-    //        edKmInicial.setText("");
-    //        edKmFinal.setText("");
-    //        edLitros.setText("");
 
             //Salvando no sqlite
             repositorio.salvar(this, viagem, info3 -> {
@@ -212,15 +202,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+//            viagem.setMedia(edKmFinal - edKmInicial);
+
+
+            listaViagem.add(viagem);
+            atualizaLista();
+
             btData.setText("01/12/2022");
             edKmInicial.setText("");
             edKmFinal.setText("");
             edLitros.setText("");
 
-
-
         } else {
-            Toast.makeText(this, "Erro ao inserir viagem", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Preencha os campos obrigatórios!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -231,33 +225,38 @@ public class MainActivity extends AppCompatActivity {
     private class ActivityMainBinding {
     }
 
-    public boolean validaDados(){
+    public boolean validaDados(Viagem viagem){
 
-
-//        final int kmfinal = Integer.valueOf(kmfin);
-//        final int kminicial = Integer.valueOf(kmini);
-//
-//        if (kmfinal > kminicial){
-//            edKmFinal.setError("O KM final não pode ser menor que o inicial");
-//            edKmFinal.requestFocus();
-//            return false;
-//        }
-
-        if (edKmInicial.getText().toString().equals("")){
+        if (viagem.getKmInicial() == null || viagem.getKmInicial().equals("")){
             edKmInicial.setError("Informe o KM inicial");
             edKmInicial.requestFocus();
             return false;
         }
-        if (edKmFinal.getText().toString().equals("")){
+
+        if (viagem.getKmFinal() == null || viagem.getKmFinal().equals("")){
             edKmFinal.setError("Informe o KM final");
             edKmFinal.requestFocus();
             return false;
         }
-        if (edLitros.getText().toString().equals("")){
+
+        if (viagem.getLitros() == null || viagem.getLitros().equals("")){
             edLitros.setError("Informe a quantidade de Litros");
             edLitros.requestFocus();
             return false;
         }
+
+        final int kminicial = Integer.valueOf(viagem.getKmInicial());
+        final int kmfinal = Integer.valueOf(viagem.getKmFinal());
+        final Double litros = Double.valueOf(viagem.getLitros());
+
+        if (kmfinal <= kminicial){
+            edKmFinal.setError("O KM final não pode ser menor que o inicial");
+            edKmFinal.requestFocus();
+            return false;
+        }
+
+        //Calculo media
+        viagem.setMedia((kmfinal - kminicial)/litros);
 
         return true;
 
