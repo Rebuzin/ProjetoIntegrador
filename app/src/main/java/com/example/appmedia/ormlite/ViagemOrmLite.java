@@ -36,6 +36,8 @@ public class ViagemOrmLite {
     private String kmFinal;
     @DatabaseField()
     private String litros;
+    @DatabaseField()
+    private Double media;
 
     public Integer getId() {
         return id;
@@ -75,5 +77,13 @@ public class ViagemOrmLite {
 
     public void setLitros(String litros) {
         this.litros = litros;
+    }
+
+    public Double getMedia() {
+        return media;
+    }
+
+    public void setMedia(Double media) {
+        this.media = media;
     }
 }
