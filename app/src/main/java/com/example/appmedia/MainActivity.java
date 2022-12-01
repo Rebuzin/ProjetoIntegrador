@@ -13,15 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-//import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.appmedia.adapter.ViagemAdapter;
-import com.example.appmedia.mapper.ViagemMapperOrmLite;
 import com.example.appmedia.model.Info;
 import com.example.appmedia.model.Viagem;
 import com.example.appmedia.repository.ViagemInterface;
 import com.example.appmedia.repository.ViagemRepositorioOrmLite;
-
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private String kmini;
     private String kmfin;
 
+    private Button btPagina;
+
 //    kmini = edKmInicial.getText().toString();
 //    kmfin = edKmFinal.getText().toString();
 
@@ -56,6 +55,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initDatePicker();
+
+        btPagina = findViewById(R.id.btPagina);
+
+//        btPagina.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(getApplicationContext(), ProximaTela.class);
+//                Intent intent = new Intent(MainActivity.this, );
+//                startActivity(intent);
+//
+//            }
+//        });
 //
 //        binding = ActivityMainBinding.infla te(getLayoutInflater());
 //        setContentView(binding.getRoot());
@@ -199,19 +211,16 @@ public class MainActivity extends AppCompatActivity {
                 if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
                     //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
                     System.out.println("Salvou!");
+
+                    listaViagem.add(viagem);
+                    atualizaLista();
+
+                    btData.setText("30/11/2022");
+                    edKmInicial.setText("");
+                    edKmFinal.setText("");
+                    edLitros.setText("");
                 }
             });
-
-//            viagem.setMedia(edKmFinal - edKmInicial);
-
-
-            listaViagem.add(viagem);
-            atualizaLista();
-
-            btData.setText("30/11/2022");
-            edKmInicial.setText("");
-            edKmFinal.setText("");
-            edLitros.setText("");
 
         } else {
             Toast.makeText(this, "Preencha os campos obrigatórios!", Toast.LENGTH_LONG).show();

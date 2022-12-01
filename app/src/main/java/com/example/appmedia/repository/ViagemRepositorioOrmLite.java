@@ -50,6 +50,8 @@ public class ViagemRepositorioOrmLite implements ViagemInterface {
             } finally {
                 // Habilito novamente o autocommit
                 dao.setAutoCommit(db, false);
+
+                response.processFinish(Info.getSuccess());
             }
         } catch (Exception e) {
             logger.e(e);
