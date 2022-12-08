@@ -49,11 +49,13 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/edNome"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:hint="NOME" />
 
         <EditText
+            android:id="@+id/edLogradouro"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="LOGRADOURO" />
@@ -68,14 +70,18 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/edRG"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:hint="RG" />
+            android:hint="RG"
+            android:inputType="number"/>
 
         <EditText
+            android:id="@+id/edCPF"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:hint="CPF" />
+            android:hint="CPF"
+            android:inputType="number"/>
 
 
     </LinearLayout>
