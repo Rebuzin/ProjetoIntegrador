@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                     listaViagem.add(viagem);
                     atualizaLista();
 
-                    btData.setText("30/11/2022");
+                    btData.setText("09/12/2022");
                     edKmInicial.setText("");
                     edKmFinal.setText("");
                     edLitros.setText("");
@@ -226,6 +226,24 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Preencha os campos obrigatórios!", Toast.LENGTH_LONG).show();
         }
+    }
+
+
+    public void excluirTodos(View view) {
+            repositorio.excluirTodos(this, info3 -> {
+
+                if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
+                    //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
+                    System.out.println("Excluiu!");
+
+                    atualizaLista();
+
+                    btData.setText("09/12/2022");
+                    edKmInicial.setText("");
+                    edKmFinal.setText("");
+                    edLitros.setText("");
+                }
+            });
     }
 
     public void OpenDate(View view) {

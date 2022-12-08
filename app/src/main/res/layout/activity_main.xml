@@ -117,6 +117,17 @@
             app:cornerRadius="10dp"
             android:textColor="#FFFFFF" />
 
+        <Button
+            android:id="@+id/btExcluirTodos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#005500"
+            android:onClick="excluirTodos"
+            android:text="Excluir todos"
+            app:cornerRadius="10dp"
+            android:textColor="#FFFFFF" />
+
     </LinearLayout>
 
     <LinearLayout

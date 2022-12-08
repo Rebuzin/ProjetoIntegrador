@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final LogApp<DatabaseHelper> logger = LogApp.getLogger(DatabaseHelper.class);
-    private static final String DATABASE_NAME = "appmedia.db";
+    private static final String DATABASE_NAME = "appmedia2.db";
     private static final int DATABASE_VERSION = 1;
     private Dao<ViagemOrmLite, Integer> viagemOrmLiteDao;
     private Dao<MotoristaOrmLite, Integer> motoristaOrmLiteDao;
@@ -33,6 +33,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase, ConnectionSource connectionSource) {
         try {
+
             TableUtils.createTable(connectionSource, ViagemOrmLite.class);
             TableUtils.createTable(connectionSource, MotoristaOrmLite.class);
             TableUtils.createTable(connectionSource, VeiculoOrmLite.class);
