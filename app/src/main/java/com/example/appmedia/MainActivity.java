@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText edKmFinal;
     private EditText edLitros;
     private TextView media;
-    private Viagem viagemSelecionada;
+    private Viagem objSelecionado;
 
     private String kmini;
     private String kmfin;
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         lvViagem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                viagemSelecionada = (Viagem) adapterView.getAdapter().getItem(position);
+                objSelecionado = (Viagem) adapterView.getAdapter().getItem(position);
             }
         });
     }

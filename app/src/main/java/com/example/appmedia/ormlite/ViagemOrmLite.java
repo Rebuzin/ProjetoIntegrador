@@ -17,7 +17,7 @@ import com.j256.ormlite.table.DatabaseTable;
 //@EqualsAndHashCode
 public class ViagemOrmLite {
 
-    public static final String ALIAS_CLASSE = "filial_orm_lite";
+    public static final String ALIAS_CLASSE = "viagem_orm_lite";
     public static final String ALIAS_CLASSE_ID = "id";
 
     public static final String ID = "id";

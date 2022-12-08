@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvItemListLogradouro"
+            android:id="@+id/tvItemListCpf"
             android:textSize="18dp"/>
 
         <TextView
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvItemListCpf"
+            android:id="@+id/tvItemListLogradouro"
             android:textSize="18dp"/>
 
 
