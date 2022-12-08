@@ -21,13 +21,14 @@
             android:padding="10dip">
 
             <Button
-                android:id="@+id/btPagina"
+                android:id="@+id/btTransferencia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="..."
                 android:backgroundTint="#005500"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:onClick="irParaTransferencia"/>
 
             <TextView
                 android:layout_width="match_parent"

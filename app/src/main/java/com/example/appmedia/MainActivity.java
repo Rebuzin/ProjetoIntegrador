@@ -2,6 +2,7 @@ package com.example.appmedia;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initDatePicker();
 
-        btPagina = findViewById(R.id.btPagina);
+//        btPagina = findViewById(R.id.btPagina);
 
 //        btPagina.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -269,5 +270,10 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
 
+    }
+
+    public void irParaTransferencia(View view){
+        Intent intent1 = new Intent(getApplicationContext(), Transferencia.class);
+        startActivity(intent1);
     }
 }
