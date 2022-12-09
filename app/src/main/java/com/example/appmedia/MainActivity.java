@@ -265,8 +265,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
 
-
-
         final int kminicial = Integer.valueOf(viagem.getKmInicial());
         final int kmfinal = Integer.valueOf(viagem.getKmFinal());
         final Double litros = Double.valueOf(viagem.getLitros());

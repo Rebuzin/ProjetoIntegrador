@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:backgroundTint="#005500"
-            android:onClick="excluirTodosV"
+            android:onClick="alertExcluirTodosV"
             android:text="Excluir todos"
             app:cornerRadius="10dp"
             android:textColor="#FFFFFF" />

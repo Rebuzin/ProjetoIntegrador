@@ -1,5 +1,6 @@
 package com.example.appmedia;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appmedia.adapter.VeiculoAdapter;
@@ -89,7 +91,27 @@ public class CadVeiculo extends AppCompatActivity {
 
     }
 
+
+    public void alertExcluirTodosV(View view) {
+        AlertDialog.Builder excluiTodosV = new AlertDialog.Builder(this);
+        excluiTodosV.setTitle("Deseja Realmente excluir Todos?");
+        excluiTodosV.setMessage("Ao confirmar, todos os cadastros de veiculos serão excluidos.");
+        excluiTodosV.setCancelable(false);
+
+        excluiTodosV.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                excluirTodosV(view);
+            }
+        });
+        excluiTodosV.setNegativeButton("Não", null);
+        excluiTodosV.create().show();
+
+    }
+
     public void excluirTodosV(View view) {
+
+
         repositorio.excluirTodosV(this, info3 -> {
 
             if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
