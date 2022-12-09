@@ -10,5 +10,6 @@ import com.example.appmedia.util.InfoResponse;
 public interface VeiculoInterface {
     void salvar(Context c, Veiculo dados, InfoResponse<Info> response);
     void listar(Context c, InfoResponse<Info> response);
+    void excluirTodosV(Context c, InfoResponse<Info> response);
 
 }

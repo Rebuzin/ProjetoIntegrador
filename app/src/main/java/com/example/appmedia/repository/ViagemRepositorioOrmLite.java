@@ -81,29 +81,29 @@ public class ViagemRepositorioOrmLite implements ViagemInterface {
 
 
 
-    @Override
-    public void excluirTodos(Context c, InfoResponse<Info> response) {
-        try {
-            DatabaseHelper databaseHelper = OpenHelperManager.getHelper(c, DatabaseHelper.class);
-
-            Dao<ViagemOrmLite, Integer> dao = databaseHelper.getViagemOrmLiteDao();
-
-            DatabaseConnection db = dao.startThreadConnection();
-            dao.setAutoCommit(db, false);
-
-            List<ViagemOrmLite> lista = dao.queryForAll();
-
-            for(ViagemOrmLite omrLite : lista){
-                dao.delete(omrLite);
-            }
-
-            dao.commit(db);
-
-            response.processFinish(Info.getSuccess());
-        } catch (Exception e) {
-            logger.e(e);
-            response.processFinish(Info.getError(e.getMessage(), c));
-        }
-
-    }
+//    @Override
+//    public void excluirTodos(Context c, InfoResponse<Info> response) {
+//        try {
+//            DatabaseHelper databaseHelper = OpenHelperManager.getHelper(c, DatabaseHelper.class);
+//
+//            Dao<ViagemOrmLite, Integer> dao = databaseHelper.getViagemOrmLiteDao();
+//
+//            DatabaseConnection db = dao.startThreadConnection();
+//            dao.setAutoCommit(db, false);
+//
+//            List<ViagemOrmLite> lista = dao.queryForAll();
+//
+//            for(ViagemOrmLite omrLite : lista){
+//                dao.delete(omrLite);
+//            }
+//
+//            dao.commit(db);
+//
+//            response.processFinish(Info.getSuccess());
+//        } catch (Exception e) {
+//            logger.e(e);
+//            response.processFinish(Info.getError(e.getMessage(), c));
+//        }
+//
+//    }
 }

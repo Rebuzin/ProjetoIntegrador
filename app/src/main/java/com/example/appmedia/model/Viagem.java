@@ -5,6 +5,7 @@ public class Viagem {
     private String kmInicial;
     private String kmFinal;
     private String litros;
+    private String cPFMotorista;
     private Double media;
 
     public Viagem() {
@@ -48,5 +49,13 @@ public class Viagem {
 
     public void setMedia(Double media) {
         this.media = media;
+    }
+
+    public String getCPFMotorista() {
+        return cPFMotorista;
+    }
+
+    public void setCPFMotorista(String cPFMotorista) {
+        this.cPFMotorista = cPFMotorista;
     }
 }

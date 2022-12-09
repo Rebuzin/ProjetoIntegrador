@@ -11,5 +11,5 @@ public interface ViagemInterface {
 
     void listar(Context c, InfoResponse<Info> response);
 
-    void excluirTodos(Context c, InfoResponse<Info> response);
+//    void excluirTodos(Context c, InfoResponse<Info> response);
 }

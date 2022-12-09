@@ -50,25 +50,27 @@
 
         <EditText
             android:id="@+id/edPlaca"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="PLACA" />
 
         <EditText
             android:id="@+id/edRenavam"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="RENAVAM" />
+            android:hint="RENAVAM"
+            android:inputType="number"/>
 
         <EditText
             android:id="@+id/edEixos"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="EIXOS" />
+            android:hint="EIXOS"
+            android:inputType="number"/>
 
         <EditText
             android:id="@+id/edModelo"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="MODELO" />
 
@@ -90,6 +92,17 @@
             android:backgroundTint="#005500"
             android:onClick="adicionarVeiculo"
             android:text="Inserir"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btExcluirTodos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#005500"
+            android:onClick="excluirTodosV"
+            android:text="Excluir todos"
+            app:cornerRadius="10dp"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
@@ -125,7 +138,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="NOVEMBRO 2022"
+                android:text="DEZEMBRO 2022"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 

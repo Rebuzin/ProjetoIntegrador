@@ -32,16 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText edKmInicial;
     private EditText edKmFinal;
     private EditText edLitros;
+    private EditText edCPFMotorista;
     private TextView media;
     private Viagem objSelecionado;
 
-    private String kmini;
-    private String kmfin;
 
-    private Button btPagina;
-
-//    kmini = edKmInicial.getText().toString();
-//    kmfin = edKmFinal.getText().toString();
 
     private DatePickerDialog datePickerDialog;
 
@@ -57,19 +52,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initDatePicker();
 
-//        btPagina = findViewById(R.id.btPagina);
-
-//        btPagina.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent intent = new Intent(getApplicationContext(), ProximaTela.class);
-//                Intent intent = new Intent(MainActivity.this, );
-//                startActivity(intent);
-//
-//            }
-//        });
-//
+//        //
 //        binding = ActivityMainBinding.infla te(getLayoutInflater());
 //        setContentView(binding.getRoot());
 //
@@ -99,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         edKmInicial = findViewById(R.id.edKmInicial);
         edKmFinal = findViewById(R.id.edKmFinal);
         edLitros = findViewById(R.id.edLitros);
+        edCPFMotorista = findViewById(R.id.edCPFMotorista);
 
         lvViagem = findViewById(R.id.lvViagem);
         listaViagem = new ArrayList<>();
@@ -120,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         int dia = cal.get(Calendar.DAY_OF_MONTH);
 
         return makeDateString(dia, mes, ano);
+
+
     }
 
     private void initDatePicker() {
@@ -140,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         int style = AlertDialog.THEME_HOLO_LIGHT;
 
         datePickerDialog = new DatePickerDialog(this, style, dateSetListener, ano, mes, dia);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
     }
 
     private String makeDateString(int dia, int mes, int ano) {
@@ -200,11 +187,9 @@ public class MainActivity extends AppCompatActivity {
         viagem.setKmInicial(edKmInicial.getText().toString());
         viagem.setKmFinal(edKmFinal.getText().toString());
         viagem.setLitros(edLitros.getText().toString());
+        viagem.setCPFMotorista(edCPFMotorista.getText().toString());
 
         if(validaDados(viagem)){
-
-//            final int kmfinal = Integer.valueOf(kmfin);
-//            final int kminicial = Integer.valueOf(kmini);
 
             //Salvando no sqlite
             repositorio.salvar(this, viagem, info3 -> {
@@ -220,6 +205,7 @@ public class MainActivity extends AppCompatActivity {
                     edKmInicial.setText("");
                     edKmFinal.setText("");
                     edLitros.setText("");
+                    edCPFMotorista.setText("");
                 }
             });
 
@@ -229,22 +215,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void excluirTodos(View view) {
-            repositorio.excluirTodos(this, info3 -> {
-
-                if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
-                    //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
-                    System.out.println("Excluiu!");
-
-                    atualizaLista();
-
-                    btData.setText("09/12/2022");
-                    edKmInicial.setText("");
-                    edKmFinal.setText("");
-                    edLitros.setText("");
-                }
-            });
-    }
+//    public void excluirTodos(View view) {
+//            repositorio.excluirTodos(this, info3 -> {
+//
+//                if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
+//                    //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
+//                    System.out.println("Excluiu!");
+//
+//                    atualizaLista();
+//
+//                    btData.setText("09/12/2022");
+//                    edKmInicial.setText("");
+//                    edKmFinal.setText("");
+//                    edLitros.setText("");
+//                }
+//            });
+//    }
 
     public void OpenDate(View view) {
         datePickerDialog.show();
@@ -272,6 +258,14 @@ public class MainActivity extends AppCompatActivity {
             edLitros.requestFocus();
             return false;
         }
+
+        if (viagem.getCPFMotorista() == null || viagem.getCPFMotorista().equals("")){
+            edCPFMotorista.setError("Informe o CPF do Motorista");
+            edCPFMotorista.requestFocus();
+            return false;
+        }
+
+
 
         final int kminicial = Integer.valueOf(viagem.getKmInicial());
         final int kmfinal = Integer.valueOf(viagem.getKmFinal());

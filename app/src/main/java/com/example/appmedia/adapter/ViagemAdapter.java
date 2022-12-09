@@ -51,6 +51,7 @@ public class ViagemAdapter extends BaseAdapter {
         TextView tvListKmInicial = view.findViewById(R.id.tvItemListKmInicial);
         TextView tvListKmFinal = view.findViewById(R.id.tvItemListKmFinal);
         TextView tvListLitros = view.findViewById(R.id.tvItemListLitros);
+        TextView tvListCPFMotorista = view.findViewById(R.id.tvITemListCPFMotorista);
         TextView tvListMedia = view.findViewById(R.id.tvItemListMedia);
 
 
@@ -58,6 +59,7 @@ public class ViagemAdapter extends BaseAdapter {
         tvListKmInicial.setText("Km Inicial: " + viagem.getKmInicial());
         tvListKmFinal.setText("Km Final: " + viagem.getKmFinal());
         tvListLitros.setText("Litros: " + viagem.getLitros());
+        tvListCPFMotorista.setText("CPF Motorista: " + viagem.getCPFMotorista());
         tvListMedia.setText("Média: " + Util.formatDecimaltoString(viagem.getMedia()));
         return view;
     }

@@ -25,6 +25,7 @@ public class ViagemOrmLite {
     public static final String KM_INICIAL = "kmInicial";
     public static final String KM_FINAL = "kmFinal";
     public static final String LITROS = "litros";
+    public static final String CPF_MOTORISTA = "cPFMotorista";
 
     @DatabaseField(generatedId = true)
     private Integer id;
@@ -36,6 +37,8 @@ public class ViagemOrmLite {
     private String kmFinal;
     @DatabaseField()
     private String litros;
+    @DatabaseField()
+    private String cPFMotorista;
     @DatabaseField()
     private Double media;
 
@@ -77,6 +80,14 @@ public class ViagemOrmLite {
 
     public void setLitros(String litros) {
         this.litros = litros;
+    }
+
+    public String getCPFMotorista() {
+        return cPFMotorista;
+    }
+
+    public void setCPFMotorista(String cPFMotorista) {
+        this.cPFMotorista = cPFMotorista;
     }
 
     public Double getMedia() {

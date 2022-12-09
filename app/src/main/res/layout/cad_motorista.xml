@@ -135,7 +135,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="NOVEMBRO 2022"
+                android:text="DEZEMBRO 2022"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 

@@ -89,6 +89,24 @@ public class CadVeiculo extends AppCompatActivity {
 
     }
 
+    public void excluirTodosV(View view) {
+        repositorio.excluirTodosV(this, info3 -> {
+
+            if (Info.TIPO_MSG_SUCCESS.equals(info3.getTipo())) {
+                //TODO - TRATAR RETORNO DE SUCESSO DE SALVAR
+                System.out.println("Excluiu!");
+
+                atualizaLista();
+
+                edPlaca.setText("");
+                edRenavam.setText("");
+                edEixos.setText("");
+                edModelo.setText("");
+            }
+        });
+    }
+
+
     public boolean validaDados(Veiculo veiculo) {
 
         if (veiculo.getPlaca() == null || veiculo.getPlaca().equals("")) {

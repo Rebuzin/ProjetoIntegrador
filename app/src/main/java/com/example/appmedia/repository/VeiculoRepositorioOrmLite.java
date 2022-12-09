@@ -6,6 +6,7 @@ import com.example.appmedia.mapper.VeiculoMapperOrmLite;
 import com.example.appmedia.model.Info;
 import com.example.appmedia.model.Veiculo;
 import com.example.appmedia.ormlite.VeiculoOrmLite;
+import com.example.appmedia.ormlite.ViagemOrmLite;
 import com.example.appmedia.util.DatabaseHelper;
 import com.example.appmedia.util.InfoResponse;
 import com.example.appmedia.util.LogApp;
@@ -72,6 +73,32 @@ public class VeiculoRepositorioOrmLite implements VeiculoInterface {
             List<Veiculo> listaModel = instance.listOrmToListVo(lista);
 
             response.processFinish(Info.getSuccess(listaModel));
+        } catch (Exception e) {
+            logger.e(e);
+            response.processFinish(Info.getError(e.getMessage(), c));
+        }
+
+    }
+
+    @Override
+    public void excluirTodosV(Context c, InfoResponse<Info> response) {
+        try {
+            DatabaseHelper databaseHelper = OpenHelperManager.getHelper(c, DatabaseHelper.class);
+
+            Dao<VeiculoOrmLite, Integer> dao = databaseHelper.getVeiculoOrmLiteDao();
+
+            DatabaseConnection db = dao.startThreadConnection();
+            dao.setAutoCommit(db, false);
+
+            List<VeiculoOrmLite> lista = dao.queryForAll();
+
+            for(VeiculoOrmLite omrLite : lista){
+                dao.delete(omrLite);
+            }
+
+            dao.commit(db);
+
+            response.processFinish(Info.getSuccess());
         } catch (Exception e) {
             logger.e(e);
             response.processFinish(Info.getError(e.getMessage(), c));
