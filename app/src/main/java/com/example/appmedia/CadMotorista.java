@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appmedia.adapter.MotoristaAdapter;
+import com.example.appmedia.funcoesvalidacao.FuncoesPadrao;
 import com.example.appmedia.model.Info;
 import com.example.appmedia.model.Motorista;
 import com.example.appmedia.model.Viagem;
@@ -26,6 +27,7 @@ public class CadMotorista extends AppCompatActivity {
     private EditText edNome;
     private EditText edLogradouro;
     private EditText edRG;
+//    private com.santalu.maskara.widget.MaskEditText edCPF;
     private EditText edCPF;
     //    private TextView media;
     private Motorista objSelecionado;
@@ -114,6 +116,11 @@ public class CadMotorista extends AppCompatActivity {
             edCPF.requestFocus();
             return false;
         }
+
+//        if (FuncoesPadrao.validaCPF(edCpf.getUnMasked()) == false) {
+//            edCpf.setError("CPF INVÁLIDO");
+//            return;
+//        }
 
         return true;
 
